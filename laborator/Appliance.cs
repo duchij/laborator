@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace laborator
 {
 
-    public abstract class Appliance : IApplControl
+    public abstract class Appliance:IApplControl,IApplService
     {
 
         private int _appNum;
+
+        public string repairStatus = "new";
 
         public int appNum
         {
@@ -45,6 +47,13 @@ namespace laborator
             this.state = false;
         }
 
+        public virtual void repair()
+        {
+            this.repairStatus = "repaired";
+        }
+
+
+
     }
 
 
@@ -58,15 +67,7 @@ namespace laborator
             this.fnc = fnc;
         }
 
-        public override void turnOn()
-        {
-            base.turnOn();
-        }
 
-        public override void turnOff()
-        {
-            base.turnOff();
-        }
 
         public override string GetDetailApplianceInfo()
         {
@@ -95,19 +96,11 @@ namespace laborator
             this.fnc = fnc;
         }
 
-        public override void turnOn()
-        {
-            base.turnOn();
-        }
-
-        public override void turnOff()
-        {
-            base.turnOff();
-        }
+      
 
         public override string GetDetailApplianceInfo()
         {
-            return base.GetDetailApplianceInfo()+"-Centrifuge";
+            return base.GetDetailApplianceInfo()+"- Centrifuge";
         }
 
         public void setAppNum(int num)

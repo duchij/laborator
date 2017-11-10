@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplControl.cs" />
+    <Compile Include="IApplControl.cs" />
+    <Compile Include="IApplService.cs" />
     <Compile Include="Lab2.cs" />
     <Compile Include="laboratory1.cs" />
     <Compile Include="laboratory2.cs" />

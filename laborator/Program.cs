@@ -11,6 +11,8 @@ namespace laborator
         static void Main(string[] args)
         {
 
+            //klasicke instanciovanie toho celeho
+
             Laboratory lab = new Laboratory();
 
             Laboratory.Chief chief = new Laboratory.Chief("Peter", "Mrkvicka");
@@ -37,25 +39,43 @@ namespace laborator
 
             Console.WriteLine("***************************************************************");
 
-            var app = Lab2.Init("microscope");
-            app.turnOn();
 
-            running = (app.state) ? "is running" : "is turned off";
+            //instanciovanie cez Factory MEthod Pattern....
 
-            Console.WriteLine("Appliance: {0} {1} and the id number is {2}, function:{3}", app.GetDetailApplianceInfo(), running, app.appNum.ToString(), app.getApplFunction());
+            Appliance app = Lab2.Init("microscope");
+
+            if (app != null)
+            {
+                app.turnOn();
+
+                running = (app.state) ? "is running" : "is turned off";
+
+                Console.WriteLine("Appliance: {0} {1} and the id number is {2}, function:{3}", app.GetDetailApplianceInfo(), running, app.appNum.ToString(), app.getApplFunction());
+            }
+            
 
 
-            var app1 = Lab2.Init("centrifuge");
-            app1.turnOff();
+            Appliance app1 = Lab2.Init("centrifuge");
 
-            running = (app1.state) ? "is running" : "is turned off";
+            if (app1 != null)
+            {
+                app1.turnOff();
 
-            Console.WriteLine("Appliance: {0} {1} and the id number is {2}, function:{3}", app1.GetDetailApplianceInfo(), running, app1.appNum.ToString(), app1.getApplFunction());
+                running = (app1.state) ? "is running" : "is turned off";
+
+                Console.WriteLine("Appliance: {0} {1} and the id number is {2}, function:{3}", app1.GetDetailApplianceInfo(), running, app1.appNum.ToString(), app1.getApplFunction());
+                Console.WriteLine("Appliance is {0}:", app1.repairStatus);
+
+                app1.repair();
+
+                Console.WriteLine("Appliance is {0}:", app1.repairStatus);
+
+
+            }
 
             chief.setFullName("Jozko", "Zeleny");
 
             Console.WriteLine("Veduci sa zmenil na: {0}", chief.getFullName());
-
 
             Console.ReadKey();
 

@@ -36,6 +36,12 @@ namespace laborator
             }
         }
 
+        public void startExamination()
+        {
+            
+        }
+        
+
         
     }
 }
