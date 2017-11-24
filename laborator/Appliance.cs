@@ -52,66 +52,9 @@ namespace laborator
             this.repairStatus = "repaired";
         }
 
-
-
     }
+    
 
-
-    sealed class Microscope : Appliance
-    {
-
-        string fnc;
-
-        public Microscope(string fnc)
-        {
-            this.fnc = fnc;
-        }
-
-
-
-        public override string GetDetailApplianceInfo()
-        {
-            return base.GetDetailApplianceInfo()+"-Microscope";
-        }
-
-        public void setAppNum(int num)
-        {
-            this.appNum = num;
-        }
-
-        public override string getApplFunction()
-        {
-            return "Microscope is "+this.fnc;
-        }
-
-    }
-
-    sealed class Centrifuge: Appliance
-    {
-
-        string fnc;
-
-        public Centrifuge(string fnc)
-        {
-            this.fnc = fnc;
-        }
-
-      
-
-        public override string GetDetailApplianceInfo()
-        {
-            return base.GetDetailApplianceInfo()+"- Centrifuge";
-        }
-
-        public void setAppNum(int num)
-        {
-            this.appNum = num;
-        }
-
-        public override string getApplFunction()
-        {
-            return "Centrifuge is "+this.fnc;
-        }
-    }
+   
 
 }
